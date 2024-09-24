@@ -1,0 +1,39 @@
+<div class="registration-container">
+  <div class="registration-form">
+    <h2>Registration Form</h2>
+
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="username">Username</label>
+        <input id="username" formControlName="username" />
+        <div
+          *ngIf="registrationForm.get('username')?.invalid && (registrationForm.get('username')?.touched || registrationForm.get('username')?.dirty)">
+          <small *ngIf="registrationForm.get('username')?.errors?.['required']" class="error">Username is
+            required.</small>
+          <small *ngIf="registrationForm.get('username')?.errors?.['maxlength']" class="error">Username cannot exceed 20
+            characters.</small>
+          <small *ngIf="registrationForm.get('username')?.errors?.['pattern']" class="error">Username must be lowercase
+            letters or numbers only.</small>
+          <small *ngIf="usernameTaken" class="error">Username is already taken.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="country">Country</label>
+        <select id="country" formControlName="country">
+          <option value="">Select a country</option>
+          <option *ngFor="let country of countries" [value]="country.code">{{ country.name }}</option>
+        </select>
+        <div
+          *ngIf="registrationForm.get('country')?.invalid && (registrationForm.get('country')?.touched || registrationForm.get('country')?.dirty)">
+          <small class="error">Country is required.</small>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="registrationForm.invalid || usernameTaken">Register</button>
+
+      <div *ngIf="submissionError" class="error">{{ submissionError }}</div>
+      <div *ngIf="submissionSuccess" class="success">{{ submissionSuccess }}</div>
+    </form>
+  </div>
+</div>
