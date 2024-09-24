@@ -1,6 +1,34 @@
-# AngularRegistrationForm
+# Angular Registration Form
+
+This is a simple registration form built using Angular. It allows users to enter their username and select their country, with validation and error handling in place.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+
+## Features
+
+- User-friendly registration form
+- Client-side validation for input fields
+- Responsive design
+- Error messages displayed in real-time
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/en/) (version 14 or higher)
+- [Angular CLI](https://angular.io/cli) (install with `npm install -g @angular/cli`)
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/theekshanaapp/angular-registration-form.git
+   cd angular-registration-form
+
+## Usage
+
+Note:
+
+1. The API responses are stored in 'src/assets/' folder.
+2. Some already created usernames are 'john_doe' and 'jane_doe' for negative scenario testing.
 
 ## Development server
 
